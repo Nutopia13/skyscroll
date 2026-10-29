@@ -1,0 +1,199 @@
+@font-face {
+  font-family: "Jersey 10";
+  src: url("Jersey10-Regular.ttf") format("truetype");
+  font-display: swap;
+}
+
+:root {
+  --graphite: #292929;
+  --deep: #1f1f1f;
+  --oak: #dcc9a9;
+  --oak-2: #b8a88e;
+  --tomato: #b83a2d;
+  --tomato-text: #e0604d;
+  --granite: #4e6851;
+  --grass: #86a586;
+  --line: #3a3a38;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+
+html { background: var(--graphite); }
+
+body {
+  margin: 0;
+  background: var(--graphite);
+  color: var(--oak);
+  font: 17px/1.6 -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* Pixel night sky: a few hard-edged stars, no gradients. */
+.sky {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle, #8c8373 1.5px, transparent 1.6px) 0 0 / 46px 46px,
+    radial-gradient(circle, #55514a 1.5px, transparent 1.6px) 23px 17px / 61px 53px,
+    var(--graphite);
+  image-rendering: pixelated;
+}
+
+/* The app's ground: a lit grass edge over granite. */
+.ground {
+  height: 28px;
+  background:
+    repeating-linear-gradient(90deg, #a9c6a7 0 6px, #86a586 6px 42px) top / 100% 6px no-repeat,
+    repeating-linear-gradient(90deg, #4e6851 0 26px, #33473a 26px 32px) 0 6px / 100% 22px no-repeat;
+}
+
+.wrap {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+header.site {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 0;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: var(--oak);
+}
+
+.brand img { width: 40px; height: 40px; border-radius: 9px; image-rendering: pixelated; }
+.brand span { font-family: "Jersey 10", monospace; font-size: 30px; line-height: 1; }
+
+nav.links { display: flex; gap: 6px; flex-wrap: wrap; }
+
+nav.links a {
+  color: var(--oak);
+  text-decoration: none;
+  font-size: 15px;
+  padding: 10px 12px;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+}
+
+nav.links a[aria-current="page"] { color: var(--graphite); background: var(--oak); }
+nav.links a:hover:not([aria-current="page"]) { background: #333230; }
+
+.hero { padding: 56px 0 40px; display: grid; gap: 28px; }
+
+.hero .icon {
+  width: 132px;
+  height: 132px;
+  border-radius: 30px;
+  image-rendering: pixelated;
+  box-shadow: 0 0 0 4px #15140f;
+}
+
+h1, h2 {
+  font-family: "Jersey 10", monospace;
+  font-weight: 400;
+  margin: 0;
+  letter-spacing: 0.01em;
+}
+
+h1 { font-size: clamp(48px, 12vw, 76px); line-height: 0.92; }
+h2 { font-size: 34px; line-height: 1; margin-top: 44px; }
+
+.rule { display: block; width: 44px; height: 5px; background: var(--tomato); margin: 16px 0 0; }
+
+.lede { font-size: 20px; color: var(--oak); margin: 0; max-width: 34ch; }
+
+p, li { color: var(--oak-2); }
+p strong, li strong { color: var(--oak); font-weight: 600; }
+
+a { color: var(--tomato-text); }
+a:hover { color: #f07a66; }
+
+main { padding: 8px 0 64px; }
+main ul { padding-left: 22px; }
+main li { margin: 6px 0; }
+
+.facts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin: 8px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.facts li {
+  margin: 0;
+  padding: 16px;
+  background: #333230;
+  box-shadow: 0 0 0 2px #15140f;
+  color: var(--oak);
+}
+
+.facts b {
+  display: block;
+  font-family: "Jersey 10", monospace;
+  font-weight: 400;
+  font-size: 26px;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.facts span { color: var(--oak-2); font-size: 15px; }
+
+.card {
+  margin-top: 16px;
+  padding: 18px 20px;
+  background: #333230;
+  box-shadow: 0 0 0 2px #15140f;
+}
+
+.card h3 { margin: 0 0 4px; font-size: 18px; color: var(--oak); }
+.card p { margin: 0; }
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  min-height: 52px;
+  padding: 0 22px;
+  background: var(--oak);
+  color: var(--graphite);
+  text-decoration: none;
+  font-family: "Jersey 10", monospace;
+  font-size: 28px;
+  box-shadow: 0 0 0 3px #15140f;
+}
+
+.button:hover { background: #f6ebd6; color: var(--graphite); }
+
+.meta { font-size: 14px; color: #8c8373; }
+
+footer.site {
+  background: var(--deep);
+  padding: 22px 0 36px;
+  font-size: 14px;
+  color: #8c8373;
+}
+
+footer.site .wrap { display: flex; flex-wrap: wrap; gap: 8px 20px; justify-content: space-between; }
+footer.site a { color: var(--oak-2); }
+
+a:focus-visible { outline: 3px solid var(--oak); outline-offset: 3px; }
+
+@media (max-width: 520px) {
+  body { font-size: 16px; }
+  header.site { flex-direction: column; align-items: flex-start; }
+  .hero { padding-top: 32px; }
+}
+
+footer.site a, p a { overflow-wrap: anywhere; }
+@media (max-width: 520px) { .facts { grid-template-columns: minmax(0, 1fr); } }
